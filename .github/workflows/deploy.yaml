@@ -35,23 +35,25 @@ jobs:
     needs: build
 
     steps:
+      - name: PWD
+        run: |
+            
+            echo 'pwd'
+        
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1  # Replace with your AWS region
 
-      - name: Install kubectl
-        uses: actions-hub/kubectl@v1
-
       - name: Deploy to EKS
         run: |
 
-          aws eks update-kubeconfig --name node-test-web --region ap-south-1
-          kubectl config set-context --current --namespace=reactprod
+          aws eks update-kubeconfig --name my-eks-cluster --region ap-south-1
+          kubectl config set-context --current --namespace=node-test-web
           kubectl apply -f /home/runner/work/node-test-web/node-test-web/.github/k8s/deployment.yaml
           kubectl apply -f /home/runner/work/node-test-web/node-test-web/.github/k8s/service.yaml
