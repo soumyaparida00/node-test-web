@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-test-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-test-web
+  template:
+    metadata:
+      labels:
+        app: node-test-web
+    spec:
+      containers:
+        - name: my-app
+          image: ghcr.io/soumyaparida00/node-test-web/node-test-web:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
