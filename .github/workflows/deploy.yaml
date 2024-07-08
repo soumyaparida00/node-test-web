@@ -35,6 +35,11 @@ jobs:
     needs: build
 
     steps:
+      - name: PWD
+        run: |
+            
+            echo 'pwd'
+        
       - name: Checkout repository
         uses: actions/checkout@v3
 
