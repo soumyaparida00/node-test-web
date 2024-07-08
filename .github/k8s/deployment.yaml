@@ -13,7 +13,7 @@ spec:
         app: node-test-web
     spec:
       containers:
-        - name: my-app
+        - name: node-test-web
           image: ghcr.io/soumyaparida00/node-test-web/node-test-web:latest
           ports:
             - containerPort: 3000
