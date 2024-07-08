@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-test-web
-          image: ghcr.io/soumyaparida00/node-test-web/node-test-web:latest
+          image: soumyaparida00/node-test-web:latest
           ports:
             - containerPort: 3000
           resources:
