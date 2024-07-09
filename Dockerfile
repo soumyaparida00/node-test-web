@@ -11,6 +11,7 @@ RUN npm install
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3001
+#This is a test comment
 RUN ls -ltr
 # Run app.js when the container launches
 CMD ["npm", "start"]
