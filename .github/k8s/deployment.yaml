@@ -16,7 +16,7 @@ spec:
         - name: node-test-web
           image: soumyaparida00/node-test-web:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 3001
           resources:
             requests:
               memory: "128Mi"
